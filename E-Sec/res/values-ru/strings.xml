@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">e-Sec.</string>
+    <string name="todo_list">События</string>
+    <string name="shopping">Покупки</string>
+    <string name="notes">Заметки</string>
+    <string name="costs">Расходы</string>
+    <string name="todo">События</string>
+    <string name="add">Добавить</string>
+    <string name="add_event">Добавить событие</string>
+    <string name="description">Описание</string>
+    <string name="title">Название</string>
+    <string name="cancel">Отмена</string>
+    <string name="priority">Приоритет</string>
+    <string name="important_urgent">Важное срочное</string>
+    <string name="important_non_urgent">Важное несрочное</string>
+    <string name="unimportant_urgent">Неважное срочное</string>
+    <string name="unimportant_non_urgent">Неважное несрочное</string>
+    <string name="status">Статус</string>
+    <string name="event">Событие</string>
+    <string name="date_task">Дата события</string>
+    <string name="time_event">Время события</string>
+    <string name="exit">Закрыть </string>
+    <string name="id">id</string>
+    <string name="time">Время:</string>
+    <string name="field_is_empty">Заполните все поля</string>
+    <string name="set_date">Установить дату или время события</string>
+    <string name="add_time_event">Установить время события</string>
+    <string name="settings">Настройки</string>
+    <string name="extra">Дополнительно</string>
+    <string name="performed">В процессе</string>
+    <string name="done">Выполнено</string>
+    <string name="failed">Не удалось</string>
+    <string name="change_priority">Изменить приоритет</string>
+
+</resources>
