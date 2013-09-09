@@ -1,7 +1,5 @@
 package com.esec.activity;
 
-import java.util.ArrayList;
-
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -15,7 +13,7 @@ import android.widget.ListView;
 import com.esec.adapter.ListMenuAdapter;
 import com.esec.listeners.ActionBarListener;
 import com.esec.listeners.MenuListener;
-import com.esec.model.ItemMenu;
+import com.esec.service.MenuService;
 
 public class MainActivity extends FragmentActivity {
 
@@ -42,10 +40,9 @@ public class MainActivity extends FragmentActivity {
 		 * init. of menu
 		 */
 		menu = (ListView) findViewById(R.id.menu);
-		menu.setAdapter(new ListMenuAdapter(this, createMainMenu()));
+		menu.setAdapter(new ListMenuAdapter(MenuService.createMainMenu()));
 		menu.setOnItemClickListener(new MenuListener(this, drawer, mainList,
 				menu));
-
 	}
 
 	@Override
@@ -88,25 +85,6 @@ public class MainActivity extends FragmentActivity {
 	 */
 	public static MainActivity getActivity() {
 		return activity;
-	}
-
-	/**
-	 * create items of main menu
-	 * 
-	 * @return
-	 */
-	private ArrayList<ItemMenu> createMainMenu() {
-		ArrayList<ItemMenu> itemsMenu = new ArrayList<ItemMenu>();
-
-		itemsMenu.add(new ItemMenu(getString(R.string.todo_list),
-				R.drawable.ic_list));
-		itemsMenu.add(new ItemMenu(getString(R.string.shopping),
-				R.drawable.ic_shopping));
-		itemsMenu.add(new ItemMenu(getString(R.string.notes),
-				R.drawable.ic_note));
-		itemsMenu.add(new ItemMenu(getString(R.string.costs),
-				R.drawable.ic_wallet));
-		return itemsMenu;
 	}
 
 	/**

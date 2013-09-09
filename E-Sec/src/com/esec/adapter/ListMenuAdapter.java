@@ -1,8 +1,10 @@
 package com.esec.adapter;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 
 import com.esec.activity.MainActivity;
 import com.esec.activity.R;
+import com.esec.controller.ControllerListEvent;
 import com.esec.model.Font;
 import com.esec.model.ItemMenu;
 
@@ -19,25 +22,20 @@ public class ListMenuAdapter extends BaseAdapter {
 	private LayoutInflater layoutInflaternflater;
 	private ArrayList<ItemMenu> mainMenu;
 	private TextView menuItem;
+	private TextView amount;
 
-	public ListMenuAdapter(Context context, ArrayList<ItemMenu> items) {
+	public ListMenuAdapter(ArrayList<ItemMenu> items) {
 		this.mainMenu = items;
-		this.layoutInflaternflater = (LayoutInflater) context
+		this.layoutInflaternflater = (LayoutInflater) MainActivity
+				.getActivity()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
-	/**
-	 * кол-во элементов
-	 */
 	@Override
 	public int getCount() {
 		return mainMenu.size();
 	}
 
-	/**
-	 * элемент меню по позиции(non-Javadoc)
-	 * 
-	 */
 	@Override
 	public Object getItem(int position) {
 		return mainMenu.get(position);
@@ -51,9 +49,6 @@ public class ListMenuAdapter extends BaseAdapter {
 		return position;
 	}
 
-	/**
-	 * –аздел главного меню
-	 */
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View view = convertView;
@@ -65,7 +60,7 @@ public class ListMenuAdapter extends BaseAdapter {
 		ItemMenu itemMenu = getItemMenu(position);
 
 		/**
-		 * заполн€ем View иконкой и названием раздела
+		 *
 		 */
 		menuItem = ((TextView) view.findViewById(R.id.textItem));
 		menuItem.setText(itemMenu.getTitleMenu());
@@ -73,11 +68,21 @@ public class ListMenuAdapter extends BaseAdapter {
 				.getFontMenu());
 		((ImageView) view.findViewById(R.id.iconItem))
 				.setImageResource(itemMenu.getIcon());
+
+		try {
+			if (getNumber(position) != 0) {
+				amount = ((TextView) view.findViewById(R.id.amount));
+				amount.setText(Integer.toString(getNumber(position)));
+				amount.setTypeface(Font.getFonts(MainActivity.getActivity())
+						.getFontMenu());
+			}
+		} catch (SQLException e) {
+			Log.i(getClass().getName(), e.getLocalizedMessage());
+		}
 		return view;
 	}
 
 	/**
-	 * раздел по позиции
 	 * 
 	 * @param position
 	 * @return
@@ -86,4 +91,14 @@ public class ListMenuAdapter extends BaseAdapter {
 		return (ItemMenu) getItem(position);
 	}
 
+	private int getNumber(int i) throws SQLException {
+		switch (i) {
+		case 0:
+			return ControllerListEvent
+					.getTodoController(MainActivity.getActivity())
+					.getListTodo().size();
+		default:
+			return 0;
+		}
+	}
 }

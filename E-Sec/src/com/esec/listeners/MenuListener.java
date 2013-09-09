@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import com.esec.activity.MainActivity;
 import com.esec.activity.R;
+import com.esec.service.MenuService;
 import com.esec.ui.UIListTodo;
 
 public class MenuListener extends ListItem implements OnItemClickListener {
@@ -29,6 +30,8 @@ public class MenuListener extends ListItem implements OnItemClickListener {
 	@Override
 	public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+		MenuService.setCounter(i);
+
 		switch (i) {
 		case 0:
 			uiListTodo.createListEvent();
@@ -47,11 +50,9 @@ public class MenuListener extends ListItem implements OnItemClickListener {
 			MainActivity.getActivity().getTitleAction()
 					.setTitle(R.string.costs);
 			break;
-
 		default:
 			break;
 		}
-
 		/**
 		 * Close menu after click item
 		 */

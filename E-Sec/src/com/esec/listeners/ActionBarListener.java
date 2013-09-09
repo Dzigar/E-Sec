@@ -9,13 +9,9 @@ import android.view.MenuItem.OnMenuItemClickListener;
 
 import com.esec.activity.MainActivity;
 import com.esec.activity.R;
-import com.esec.service.DialogScreenService;
+import com.esec.service.AddEventDialog;
 
 public class ActionBarListener implements OnMenuItemClickListener {
-
-	public ActionBarListener() {
-
-	}
 
 	@Override
 	public boolean onMenuItemClick(MenuItem item) {
@@ -23,7 +19,7 @@ public class ActionBarListener implements OnMenuItemClickListener {
 		switch (item.getItemId()) {
 		case R.id.action_add:
 			try {
-				DialogScreenService dialogScreenService = new DialogScreenService(
+				AddEventDialog dialogScreenService = new AddEventDialog(
 						MainActivity.getActivity());
 				dialogScreenService.show();
 			} catch (SQLException e) {
