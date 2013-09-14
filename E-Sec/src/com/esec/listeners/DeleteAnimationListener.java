@@ -4,17 +4,33 @@ import java.sql.SQLException;
 
 import android.view.animation.Animation;
 
+import com.esec.activity.MainActivity;
+import com.esec.activity.fragment.ListShoppingFragment;
 import com.esec.controller.ControllerListEvent;
-import com.esec.ui.UIListTodo;
+import com.esec.controller.ControllerListShopping;
+import com.esec.service.MenuService;
 
 public class DeleteAnimationListener implements Animation.AnimationListener {
 
 	private ControllerListEvent controllerListTodo;
+	private ControllerListShopping controllerListShopping;
 	private int position;
+	private int i;
 
 	public DeleteAnimationListener(int position) throws SQLException {
 		this.position = position;
-		controllerListTodo = ControllerListEvent.getTodoController(null);
+		i = MenuService.getSelectItem();
+		switch (i) {
+		case 0:
+			controllerListTodo = ControllerListEvent.getTodoController(null);
+			break;
+		case 1:
+			controllerListShopping = ControllerListShopping
+					.getShoppingController(null);
+			break;
+		default:
+			break;
+		}
 	}
 
 	/**
@@ -22,16 +38,26 @@ public class DeleteAnimationListener implements Animation.AnimationListener {
 	 * 
 	 * @throws SQLException
 	 */
-	private void removeTodo(int index) throws SQLException {
-		controllerListTodo.deleteTodo(index);
-		UIListTodo.getUiListTodo(null, null).createListEvent();
-
+	private void remove(int index) throws SQLException {
+		switch (i) {
+		case 0:
+			controllerListTodo.deleteTodo(index);
+			// UIListTodo.getUiListTodo(null, null).createListEvent();
+			break;
+		case 1:
+			controllerListShopping.deleteShopping(index);
+			MainActivity.getActivity().updateFragment(
+					new ListShoppingFragment());
+			break;
+		default:
+			break;
+		}
 	}
 
 	@Override
 	public void onAnimationEnd(Animation arg0) {
 		try {
-			removeTodo(position);
+			remove(position);
 		} catch (SQLException e) {
 			e.getLocalizedMessage();
 		}

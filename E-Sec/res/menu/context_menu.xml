@@ -17,7 +17,6 @@
     <item
         android:id="@+id/title"
         android:enabled="false"
-        android:showAsAction="ifRoom|withText"
-        android:title="@string/todo_list"/>
+        android:showAsAction="ifRoom|withText"/>
 
 </menu>

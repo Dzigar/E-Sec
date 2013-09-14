@@ -23,8 +23,7 @@ import com.esec.model.Priorities;
 import com.esec.model.Status;
 import com.esec.model.Todo;
 import com.esec.service.DateService;
-import com.esec.ui.DateDialog;
-import com.esec.ui.UIListTodo;
+import com.esec.userinterface.dialog.DateDialog;
 
 public class Event extends Activity implements OnClickListener {
 
@@ -132,7 +131,7 @@ public class Event extends Activity implements OnClickListener {
 								}
 							})
 
-					.setNegativeButton(R.string.cancel,
+					.setNegativeButton(android.R.string.cancel,
 							new DialogInterface.OnClickListener() {
 								@Override
 								public void onClick(DialogInterface dialog,
@@ -170,7 +169,7 @@ public class Event extends Activity implements OnClickListener {
 		super.onBackPressed();
 		try {
 			toDoDAO.update(getTodo());
-			UIListTodo.getUiListTodo(this, null).createListEvent();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

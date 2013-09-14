@@ -2,16 +2,18 @@
 <resources>
 
     <string name="app_name">e-Sec.</string>
-    <string name="todo_list">Todo</string>
-    <string name="shopping">Shopping</string>
-    <string name="notes">Notes</string>
-    <string name="costs">Costs</string>
+
+    <string-array name="title_items">
+        <item>Todo</item>
+        <item>Shopping</item>
+        <item>Notes</item>
+        <item>Costs</item>
+    </string-array>
     <string name="todo">Todo list</string>
     <string name="add">add</string>
     <string name="add_event">Add event</string>
     <string name="description">Description</string>
     <string name="title">Title</string>
-    <string name="cancel">Cancel</string>
     <string name="priority">Priority</string>
     <string name="important_urgent">Important urgent</string>
     <string name="important_non_urgent">Important non-urgent</string>
@@ -33,5 +35,10 @@
     <string name="done">Done</string>
     <string name="failed">Failed</string>
     <string name="change_priority">Change priority</string>
+    <string name="add_purchase">Add purchase </string>
+    <string name="Stuff">Which stuff? </string>
+    <string name="numStuff">How many? </string>
+    <string name="ivShopping">Image View of ""Shopping" </string>
+    <string name="menu">Menu</string>
 
 </resources>

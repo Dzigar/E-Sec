@@ -7,17 +7,24 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable
 public class Shopping {
 
+	public Shopping() {
+	}
+
 	@DatabaseField(generatedId = true)
 	private int id;
 
 	@DatabaseField(canBeNull = false, dataType = DataType.STRING, columnName = "title")
 	private String title;
 
-	@DatabaseField(canBeNull = false, dataType = DataType.BOOLEAN_OBJ, columnName = "status")
+	@DatabaseField(canBeNull = true, dataType = DataType.INTEGER, columnName = "amount")
+	private int amount;
+
+	@DatabaseField(canBeNull = false, dataType = DataType.BOOLEAN, columnName = "status")
 	private boolean status;
 
-	public Shopping(String title) {
+	public Shopping(String title, int amount) {
 		this.setTitle(title);
+		this.setAmount(amount);
 	}
 
 	/**
@@ -33,6 +40,21 @@ public class Shopping {
 	 */
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	/**
+	 * @return the number
+	 */
+	public int getAmount() {
+		return amount;
+	}
+
+	/**
+	 * @param number
+	 *            the number to set
+	 */
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 
 	/**

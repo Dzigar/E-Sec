@@ -7,11 +7,13 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.esec.dao.ShoppingDAO;
 import com.esec.dao.ToDoDAO;
+import com.esec.model.Shopping;
 import com.esec.model.Todo;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
-import com.j256.ormlite.table.TableUtils;
+import com.j256.ormlite.table.TableUtils;;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
@@ -19,11 +21,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
 	private static final String DATABASE_NAME = "iManager.db";
 
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 2;
 
 	private static final AtomicInteger usageCounter = new AtomicInteger(0);
 
 	private ToDoDAO toDoDAO = null;
+	private ShoppingDAO shoppingDAO = null;
 
 	public DatabaseHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -31,8 +34,11 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
+		Log.d("deb","Created");
 		try {
+
 			TableUtils.createTable(connectionSource, Todo.class);
+			TableUtils.createTable(connectionSource, Shopping.class);
 		} catch (SQLException e) {
 			Log.e(TAG, "error creating DB " + DATABASE_NAME);
 			throw new RuntimeException(e);
@@ -42,14 +48,16 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 	@Override
 	public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource,
 			int oldVer, int newVer) {
-		try {
-			TableUtils.dropTable(connectionSource, Todo.class, true);
-			onCreate(db, connectionSource);
-		} catch (SQLException e) {
-			Log.e(TAG, "error upgrading db " + DATABASE_NAME + "from ver "
-					+ oldVer);
-			throw new RuntimeException(e);
-		}
+		
+			try {
+				TableUtils.createTable(connectionSource, Shopping.class);
+				onCreate(db, connectionSource);
+			} catch (SQLException e) {
+				Log.e(TAG, "error upgrading db " + DATABASE_NAME + "from ver "
+						+ oldVer);
+				throw new RuntimeException(e);
+			}
+	
 	}
 
 	public ToDoDAO getToDoDAO() throws SQLException {
@@ -62,6 +70,17 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 		}
 		return toDoDAO;
 	}
+	
+	public ShoppingDAO getShoppingDAO() throws SQLException {
+		if (shoppingDAO == null) {
+			try {
+				shoppingDAO = new ShoppingDAO(getConnectionSource(), Shopping.class);
+			} catch (Exception e) {
+				Log.i(getClass().getName(), e.getMessage());
+			}
+		}
+		return shoppingDAO;
+	}
 
 	@Override
 	public void close() {
@@ -69,6 +88,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 			if (usageCounter.decrementAndGet() <= 0) {
 				HelperFactory.releaseHelper();
 				toDoDAO = null;
+				shoppingDAO=null;
 				super.close();
 			}
 		} catch (Exception e) {

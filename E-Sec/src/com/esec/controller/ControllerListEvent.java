@@ -10,7 +10,8 @@ import java.util.List;
 import android.app.Activity;
 import android.util.Log;
 
-import com.esec.connection.DatabaseHelper;
+import com.esec.activity.MainActivity;
+import com.esec.activity.fragment.ListEventFragment;
 import com.esec.connection.HelperFactory;
 import com.esec.dao.ToDoDAO;
 import com.esec.model.Priorities;
@@ -65,5 +66,6 @@ public class ControllerListEvent {
 		List<Todo> listTodo = toDoDAO.getAllEvents();
 		Collections.sort(listTodo, new ComparatorEventService());
 		toDoDAO.delete(listTodo.get(position));
+		MainActivity.getActivity().updateFragment(new ListEventFragment());
 	}
 }

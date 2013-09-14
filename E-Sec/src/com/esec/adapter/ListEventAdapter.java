@@ -82,32 +82,24 @@ public class ListEventAdapter extends BaseAdapter {
 		return view;
 	}
 
-	/**
-	 * 
-	 */
 	private void setImagePriority(ImageView imageView, Todo todo) {
 		switch (todo.getPriority().getId()) {
 		case 0:
-			imageView.setBackground(MainActivity.getActivity().getResources()
-					.getDrawable(R.drawable.ic_a));
+			imageView.setBackgroundResource(R.drawable.ic_a);
 			break;
 		case 1:
-			imageView.setBackground(MainActivity.getActivity().getResources()
-					.getDrawable(R.drawable.ic_b));
+			imageView.setBackgroundResource(R.drawable.ic_b);
 			break;
 		case 2:
-			imageView.setBackground(MainActivity.getActivity().getResources()
-					.getDrawable(R.drawable.ic_c));
+			imageView.setBackgroundResource(R.drawable.ic_c);
 			break;
 		case 3:
-			imageView.setBackground(MainActivity.getActivity().getResources()
-					.getDrawable(R.drawable.ic_d));
+			imageView.setBackgroundResource(R.drawable.ic_d);
 			break;
 
 		default:
 			break;
 		}
-
 	}
 
 	/**

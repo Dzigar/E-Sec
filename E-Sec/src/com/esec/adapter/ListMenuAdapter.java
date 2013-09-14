@@ -1,7 +1,6 @@
 package com.esec.adapter;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import android.content.Context;
 import android.util.Log;
@@ -15,17 +14,18 @@ import android.widget.TextView;
 import com.esec.activity.MainActivity;
 import com.esec.activity.R;
 import com.esec.controller.ControllerListEvent;
+import com.esec.controller.ControllerListShopping;
 import com.esec.model.Font;
 import com.esec.model.ItemMenu;
 
 public class ListMenuAdapter extends BaseAdapter {
 	private LayoutInflater layoutInflaternflater;
-	private ArrayList<ItemMenu> mainMenu;
+	private ItemMenu[] titleItemsMenu;
 	private TextView menuItem;
 	private TextView amount;
 
-	public ListMenuAdapter(ArrayList<ItemMenu> items) {
-		this.mainMenu = items;
+	public ListMenuAdapter(ItemMenu[] items) {
+		this.titleItemsMenu = items;
 		this.layoutInflaternflater = (LayoutInflater) MainActivity
 				.getActivity()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -33,12 +33,12 @@ public class ListMenuAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		return mainMenu.size();
+		return titleItemsMenu.length;
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return mainMenu.get(position);
+		return titleItemsMenu[position];
 	}
 
 	/**
@@ -59,9 +59,6 @@ public class ListMenuAdapter extends BaseAdapter {
 
 		ItemMenu itemMenu = getItemMenu(position);
 
-		/**
-		 *
-		 */
 		menuItem = ((TextView) view.findViewById(R.id.textItem));
 		menuItem.setText(itemMenu.getTitleMenu());
 		menuItem.setTypeface(Font.getFonts(MainActivity.getActivity())
@@ -97,6 +94,10 @@ public class ListMenuAdapter extends BaseAdapter {
 			return ControllerListEvent
 					.getTodoController(MainActivity.getActivity())
 					.getListTodo().size();
+		case 1:
+			return ControllerListShopping
+					.getShoppingController(MainActivity.getActivity())
+					.getListShopping().size();
 		default:
 			return 0;
 		}
