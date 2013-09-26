@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">e-Sec.</string>
+
+    <string-array name="title_items">
+        <item>Todo</item>
+        <item>Shopping</item>
+        <item>Notes</item>
+        <item>Costs</item>
+    </string-array>
+
+    <string name="todo">Todo list</string>
+    <string name="add">add</string>
+    <string name="add_event">Add event</string>
+    <string name="add_note">Add note </string>
+    <string name="description">Description</string>
+    <string name="title">Title</string>
+    <string name="priority">Priority</string>
+    <string name="status">Status</string>
+    <string name="event">Event</string>
+    <string name="date_task">Set date event</string>
+    <string name="time_event">Set time event</string>
+    <string name="exit">Exit IManeger ?</string>
+    <string name="id">id</string>
+    <string name="time">Time:</string>
+    <string name="field_is_empty">Fill in all fields</string>
+    <string name="set_date">Set date or time event</string>
+    <string name="add_time_event">Add time event</string>
+    <string name="settings">Settings</string>
+    <string name="extra">Extra</string>
+    <string name="performed">Performed</string>
+    <string name="done">Done</string>
+    <string name="failed">Failed</string>
+    <string name="change_priority">Change priority</string>
+    <string name="add_purchase">Add purchase </string>
+    <string name="Stuff">Which stuff? </string>
+    <string name="numStuff">How many? </string>
+    <string name="ivShopping">Image View of ""Shopping" </string>
+    <string name="menu">Menu</string>
+    <string name="ivNote">Image View of ""Note" </string>
+    <string name="note">Name of Note: </string>
+    <string name="notedesc">Description: </string>
+    <string name="change_data">contentDescription for button </string>
+    <string name="change_priority_cD">contentDescription for button </string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="other">Other</string>
+    <string name="archive">Archive</string>
+    <string name="important">Important</string>
+    <string name="sh_list">Shopping list</string>
+    <string name="new_list">Add list</string>
+    <string name="list_title">list title</string>
+    
+
+</resources>
