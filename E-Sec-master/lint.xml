@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<lint>
-    <issue id="NewApi">
-        <ignore path="src/com/esec/MainActivity.java" />
-        <ignore path="src/com/esec/activity/MainActivity.java" />
-    </issue>
-    <issue id="ValidFragment" severity="ignore" />
-</lint>
