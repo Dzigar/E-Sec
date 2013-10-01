@@ -1,8 +1,8 @@
 package com.esec.service;
 
-import com.esec.activity.MainActivity;
-
 import android.util.DisplayMetrics;
+
+import com.esec.activity.MainActivity;
 
 public class MetricsService {
 

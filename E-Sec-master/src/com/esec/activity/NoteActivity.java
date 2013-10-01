@@ -12,15 +12,14 @@ import com.esec.dao.NoteDAO;
 import com.esec.model.Font;
 import com.esec.model.Note;
 
-public class NoteActivity extends Activity{
+public class NoteActivity extends Activity {
 
 	private TextView titleNote;
 	private TextView descriptionNote;
-	
+
 	private NoteDAO noteDAO;
 	private Note note;
 
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -30,25 +29,25 @@ public class NoteActivity extends Activity{
 		} catch (SQLException e) {
 			Log.i(getClass().getName(), e.getLocalizedMessage());
 		}
-				
+
 		titleNote = (TextView) findViewById(R.id.noteTitle);
 		titleNote.setTypeface(Font.getFonts(this).getFontEventList());
-		
+
 		descriptionNote = (TextView) findViewById(R.id.descriptionNote);
 		descriptionNote.setTypeface(Font.getFonts(this).getFontEventList());
-		
+
 		Bundle extras = getIntent().getExtras();
-		int id = extras.getInt("note");;
-		
+		int id = extras.getInt("note");
+		;
+
 		try {
 			note = noteDAO.queryForId(id);
 		} catch (SQLException e) {
 			Log.i(getClass().getName(), e.getLocalizedMessage());
 		}
-		
+
 		titleNote.setText(note.getTitle());
 		descriptionNote.setText(note.getDesc());
 	}
 
-	
 }

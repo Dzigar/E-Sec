@@ -15,8 +15,9 @@ import android.widget.Toast;
 
 import com.esec.activity.MainActivity;
 import com.esec.activity.R;
-import com.esec.activity.fragment.ListNoteFragment;
-import com.esec.controller.ControllerListNote;
+import com.esec.activity.fragment.NotesFragment;
+import com.esec.connection.HelperFactory;
+import com.esec.model.Note;
 
 public class AddNoteDialog implements DialogInterface.OnClickListener {
 
@@ -70,14 +71,14 @@ public class AddNoteDialog implements DialogInterface.OnClickListener {
 					toast.show();
 					break;
 				}
-				ControllerListNote cln = ControllerListNote
-						.getNoteController(activity);
 				date = new Date();
 				dateString = dateFormat.format(date);
-				cln.addNote(titleNote.getText().toString(), descNote.getText()
-						.toString(), dateString);
-				MainActivity.getActivity().updateFragment(
-						new ListNoteFragment());
+				HelperFactory
+						.getHelper()
+						.getNoteDAO()
+						.create(new Note(titleNote.getText().toString(),
+								descNote.getText().toString(), dateString));
+				MainActivity.getActivity().updateFragment(new NotesFragment());
 			} catch (Exception e) {
 				Log.i(getClass().getName(), e.getLocalizedMessage());
 			}

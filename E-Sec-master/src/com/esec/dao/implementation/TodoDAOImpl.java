@@ -95,7 +95,7 @@ public class TodoDAOImpl extends BaseDaoImpl<Todo, Integer> implements TodoDAO {
 	}
 
 	@Override
-	public void removeById(int id) throws SQLException {
+	public void deleteById(int id) throws SQLException {
 		super.deleteById(id);
 		MainActivity.getActivity().updateFragment(new EventsFragment());
 	}

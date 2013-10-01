@@ -1,9 +1,9 @@
 package com.esec.model;
 
-import com.esec.string.Strings;
-
 import android.content.Context;
 import android.graphics.Typeface;
+
+import com.esec.string.Strings;
 
 public class Font {
 

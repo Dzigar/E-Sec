@@ -25,5 +25,5 @@ public interface TodoDAO {
 
 	public void updateTodo(Todo todo) throws SQLException;
 
-	public void removeById(int id) throws SQLException;
+	public void deleteById(int id) throws SQLException;
 }

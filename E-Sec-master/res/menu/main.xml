@@ -2,20 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
+        android:id="@+id/new_shopping"
+        android:icon="@drawable/new_shopping"
+        android:menuCategory="container"
+        android:showAsAction="always"/>
+    <item
         android:id="@+id/add_new_list"
         android:icon="@drawable/new_list"
         android:menuCategory="container"
-        android:showAsAction="ifRoom"/>
+        android:showAsAction="always"/>
     <item
         android:id="@+id/delete_list"
         android:icon="@drawable/content_discard"
         android:menuCategory="container"
-        android:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/new_shopping"
-        android:icon="@drawable/new_shopping"
-        android:menuCategory="container"
-        android:showAsAction="ifRoom"/>
+        android:showAsAction="always"/>
     <item
         android:id="@+id/new_event"
         android:icon="@drawable/new_event"

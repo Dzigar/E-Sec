@@ -6,27 +6,14 @@ import android.util.Log;
 import android.view.animation.Animation;
 
 import com.esec.connection.HelperFactory;
-import com.esec.controller.ControllerListNote;
 import com.esec.service.MenuService;
 
 public class DeleteAnimationListener implements Animation.AnimationListener {
 
-	private ControllerListNote controllerListNote;
 	private int position;
 
 	public DeleteAnimationListener(int position) throws SQLException {
 		this.position = position;
-		switch (MenuService.getSelectItem()) {
-		case 0:
-			break;
-		case 1:
-			break;
-		case 2:
-			controllerListNote = ControllerListNote.getNoteController(null);
-			break;
-		default:
-			break;
-		}
 	}
 
 	/**
@@ -37,13 +24,13 @@ public class DeleteAnimationListener implements Animation.AnimationListener {
 	private void remove(int id) throws SQLException {
 		switch (MenuService.getSelectItem()) {
 		case 0:
-			HelperFactory.getHelper().getTodoDAO().removeById(id);
+			HelperFactory.getHelper().getTodoDAO().deleteById(id);
 			break;
 		case 1:
 			HelperFactory.getHelper().getShoppingDAO().deleteById(id);
 			break;
 		case 2:
-			controllerListNote.deleteNote(id);
+			HelperFactory.getHelper().getNoteDAO().deleteById(id);
 			break;
 		}
 	}

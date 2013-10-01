@@ -12,7 +12,7 @@ import android.widget.ListView;
 import com.esec.activity.MainActivity;
 import com.esec.activity.R;
 import com.esec.activity.fragment.EventsFragment;
-import com.esec.activity.fragment.ListNoteFragment;
+import com.esec.activity.fragment.NotesFragment;
 import com.esec.activity.fragment.ShoppingFragment;
 import com.esec.service.MenuService;
 
@@ -41,7 +41,7 @@ public class MenuClickListener extends ListItem implements OnItemClickListener {
 			fragment = new ShoppingFragment();
 			break;
 		case 2:
-			fragment = new ListNoteFragment();
+			fragment = new NotesFragment();
 			break;
 		case 3:
 
