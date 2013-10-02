@@ -29,9 +29,6 @@ public class DeleteAnimationListener implements Animation.AnimationListener {
 		case 1:
 			HelperFactory.getHelper().getShoppingDAO().deleteById(id);
 			break;
-		case 2:
-			HelperFactory.getHelper().getNoteDAO().deleteById(id);
-			break;
 		}
 	}
 

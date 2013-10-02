@@ -7,10 +7,11 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.esec.dao.NoteDAO;
 import com.esec.dao.implementation.ListDAOImpl;
+import com.esec.dao.implementation.NoteDAOImpl;
 import com.esec.dao.implementation.ShoppingDAOImpl;
 import com.esec.dao.implementation.TodoDAOImpl;
+import com.esec.dao.interfaces.NoteDAO;
 import com.esec.dao.interfaces.ShoppingDAO;
 import com.esec.dao.interfaces.ShoppingListDAO;
 import com.esec.dao.interfaces.TodoDAO;
@@ -109,7 +110,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 	public NoteDAO getNoteDAO() throws SQLException {
 		if (noteDAO == null) {
 			try {
-				noteDAO = new NoteDAO(getConnectionSource(), Note.class);
+				noteDAO = new NoteDAOImpl(getConnectionSource(), Note.class);
 			} catch (Exception e) {
 				Log.i(getClass().getName(), e.getMessage());
 			}

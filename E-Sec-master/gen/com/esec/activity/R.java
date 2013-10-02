@@ -86,40 +86,39 @@ public final class R {
         public static final int tab_text_selector=0x7f020026;
     }
     public static final class id {
-        public static final int Date=0x7f0a0024;
-        public static final int Note=0x7f0a0023;
-        public static final int Shopping=0x7f0a0029;
+        public static final int Shopping=0x7f0a0027;
         public static final int View01=0x7f0a0016;
         public static final int View02=0x7f0a0018;
-        public static final int action_settings=0x7f0a0034;
+        public static final int action_settings=0x7f0a0033;
         public static final int addDate=0x7f0a0008;
-        public static final int add_new_list=0x7f0a0031;
+        public static final int add_new_list=0x7f0a0030;
         public static final int amount=0x7f0a001f;
         public static final int body_task=0x7f0a0015;
         public static final int calendarDate=0x7f0a0009;
         public static final int change_date=0x7f0a0019;
         public static final int dateEvent=0x7f0a0012;
         public static final int date_task=0x7f0a001a;
-        public static final int delete_list=0x7f0a0032;
+        public static final int delete_list=0x7f0a0031;
         public static final int descNote=0x7f0a000d;
         public static final int descriptionEvent=0x7f0a0004;
         public static final int descriptionNote=0x7f0a0021;
         public static final int drawer_layout=0x7f0a0000;
-        public static final int event=0x7f0a002d;
+        public static final int event=0x7f0a002b;
         public static final int header_vertical_divider_1=0x7f0a0006;
         public static final int horizontalScrollView1=0x7f0a001c;
-        public static final int ic_clock=0x7f0a002b;
+        public static final int ic_clock=0x7f0a0029;
         public static final int iconItem=0x7f0a001d;
-        public static final int imageNote=0x7f0a0022;
-        public static final int imageShopping=0x7f0a0028;
-        public static final int imageStatus=0x7f0a002c;
+        public static final int imageShopping=0x7f0a0026;
+        public static final int imageStatus=0x7f0a002a;
         public static final int important=0x7f0a0007;
-        public static final int ivPurchase=0x7f0a0025;
-        public static final int linearLayout1=0x7f0a002a;
+        public static final int infoNote=0x7f0a0022;
+        public static final int ivPurchase=0x7f0a0023;
+        public static final int linearLayout1=0x7f0a0028;
         public static final int main=0x7f0a0001;
         public static final int menu=0x7f0a0002;
-        public static final int new_event=0x7f0a0033;
-        public static final int new_shopping=0x7f0a0030;
+        public static final int new_event=0x7f0a0032;
+        public static final int new_note=0x7f0a002f;
+        public static final int new_shopping=0x7f0a002e;
         public static final int noteTitle=0x7f0a0020;
         public static final int numStuff=0x7f0a0011;
         public static final int questionDescNote=0x7f0a000c;
@@ -127,8 +126,8 @@ public final class R {
         public static final int questionStuff=0x7f0a000e;
         public static final int questionnumbStuff=0x7f0a0010;
         public static final int statusCheckBox=0x7f0a001b;
-        public static final int tabsLayout=0x7f0a002e;
-        public static final int tabsText=0x7f0a002f;
+        public static final int tabsLayout=0x7f0a002c;
+        public static final int tabsText=0x7f0a002d;
         public static final int textItem=0x7f0a001e;
         public static final int textSettings=0x7f0a0005;
         public static final int textView1=0x7f0a0017;
@@ -137,8 +136,8 @@ public final class R {
         public static final int titleNote=0x7f0a000b;
         public static final int titleStuff=0x7f0a000f;
         public static final int title_task=0x7f0a0014;
-        public static final int tvNumStuff=0x7f0a0027;
-        public static final int tvStuffName=0x7f0a0026;
+        public static final int tvNumStuff=0x7f0a0025;
+        public static final int tvStuffName=0x7f0a0024;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

@@ -76,8 +76,10 @@ public class AddNoteDialog implements DialogInterface.OnClickListener {
 				HelperFactory
 						.getHelper()
 						.getNoteDAO()
-						.create(new Note(titleNote.getText().toString(),
-								descNote.getText().toString(), dateString));
+						.addNote(
+								new Note(titleNote.getText().toString(),
+										descNote.getText().toString(),
+										dateString));
 				MainActivity.getActivity().updateFragment(new NotesFragment());
 			} catch (Exception e) {
 				Log.i(getClass().getName(), e.getLocalizedMessage());

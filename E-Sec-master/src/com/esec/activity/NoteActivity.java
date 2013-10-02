@@ -8,7 +8,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.esec.connection.HelperFactory;
-import com.esec.dao.NoteDAO;
+import com.esec.dao.interfaces.NoteDAO;
 import com.esec.model.Font;
 import com.esec.model.Note;
 
@@ -38,10 +38,9 @@ public class NoteActivity extends Activity {
 
 		Bundle extras = getIntent().getExtras();
 		int id = extras.getInt("note");
-		;
 
 		try {
-			note = noteDAO.queryForId(id);
+			note = noteDAO.getNoteById(id);
 		} catch (SQLException e) {
 			Log.i(getClass().getName(), e.getLocalizedMessage());
 		}

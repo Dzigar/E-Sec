@@ -15,6 +15,7 @@ import com.esec.activity.fragment.ShoppingFragment;
 import com.esec.connection.HelperFactory;
 import com.esec.model.ShoppingList;
 import com.esec.userinterface.dialog.AddEventDialog;
+import com.esec.userinterface.dialog.AddNoteDialog;
 import com.esec.userinterface.dialog.AddShoppingDialog;
 
 public class ActionBarListener implements OnMenuItemClickListener {
@@ -76,9 +77,6 @@ public class ActionBarListener implements OnMenuItemClickListener {
 				Log.i(getClass().getName(), e.getLocalizedMessage());
 			}
 			break;
-		// AddNoteDialog dialogNoteService = new AddNoteDialog(
-		// MainActivity.getActivity());
-		// dialogNoteService.show();
 
 		/**
 		 * Dialog of new purchase
@@ -91,11 +89,20 @@ public class ActionBarListener implements OnMenuItemClickListener {
 
 		case R.id.delete_list:
 			try {
-				System.out.println("qqq " + ShoppingFragment.idSelectedList);
 				HelperFactory.getHelper().getShoppingListDAO()
 						.deleteListById(ShoppingFragment.idSelectedList);
 			} catch (SQLException e) {
 				e.printStackTrace();
+			}
+			break;
+
+		case R.id.new_note:
+			try {
+				AddNoteDialog dialogNoteService = new AddNoteDialog(
+						MainActivity.getActivity());
+				dialogNoteService.show();
+			} catch (SQLException e) {
+				Log.i(getClass().getName(), e.getLocalizedMessage());
 			}
 			break;
 		default:

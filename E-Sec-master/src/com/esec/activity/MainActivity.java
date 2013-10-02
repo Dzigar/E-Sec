@@ -34,6 +34,7 @@ public class MainActivity extends FragmentActivity {
 	private MenuItem addNewList;
 	private MenuItem addNewShopping;
 	private MenuItem deleteList;
+	private MenuItem addNote;
 
 	private ListView menu; // list of menu items
 	private ItemMenu[] titleItems; // titles of items menu
@@ -110,6 +111,10 @@ public class MainActivity extends FragmentActivity {
 		deleteList.setOnMenuItemClickListener(listenerForActionBar);
 		deleteList.setVisible(false);
 
+		addNote = menu.findItem(R.id.new_note);
+		addNote.setOnMenuItemClickListener(listenerForActionBar);
+		addNote.setVisible(false);
+
 		switch (MenuService.getSelectItem()) {
 		case 0:
 			addNewEvent.setVisible(true);
@@ -120,14 +125,11 @@ public class MainActivity extends FragmentActivity {
 			addNewShopping.setVisible(true);
 			break;
 		case 2:
-
+			addNote.setVisible(true);
 			break;
 
 		default:
 			break;
-		}
-		if (MenuService.getSelectItem() != 1) {
-
 		}
 		return true;
 	}

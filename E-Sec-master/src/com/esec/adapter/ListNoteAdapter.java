@@ -55,17 +55,19 @@ public class ListNoteAdapter extends BaseAdapter {
 		View view = convertView;
 		Note note = getNoteItem(position);
 
-		if (view == null) {
-			view = layoutInflaternflater.inflate(R.layout.note_item, parent,
-					false);
-			TextView textView = (TextView) view.findViewById(R.id.Note);
-			textView.setText(note.getTitle());
-			textView.setTypeface(Font.getFonts(MainActivity.getActivity())
-					.getFontEventList());
+		System.out.println(note.getDesc());
 
-			((TextView) view.findViewById(R.id.Date)).setText(note.getDate()
-					+ "");
-		}
+//		if (view == null) {
+//			view = layoutInflaternflater.inflate(R.layout.note_item, parent,
+//					false);
+//			TextView textView = (TextView) view.findViewById(R.id.Note);
+//			textView.setText(note.getTitle());
+//			textView.setTypeface(Font.getFonts(MainActivity.getActivity())
+//					.getFontEventList());
+//
+//			((TextView) view.findViewById(R.id.Date)).setText(note.getDate()
+//					+ "");
+//		}
 		return view;
 	}
 }
